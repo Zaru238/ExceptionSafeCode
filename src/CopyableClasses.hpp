@@ -4,30 +4,32 @@
 
 #include <memory>
 
-class NonThrowOnCopy{
-public:
+class NonThrowOnCopy {
+ public:
   NonThrowOnCopy() = default;
   NonThrowOnCopy(const NonThrowOnCopy&) = default;
 };
 
-class ThrowOnCopy{
-public:
+class ThrowOnCopy {
+ public:
   ThrowOnCopy() = default;
   ThrowOnCopy(const ThrowOnCopy&);
 };
 
 class NonThrowOnCopyResource {
-public:
+ public:
   NonThrowOnCopyResource();
   NonThrowOnCopyResource(const NonThrowOnCopyResource&);
-private:
+
+ private:
   std::unique_ptr<size_t> mResource;
 };
 
 class ThrowOnCopyResource {
-public:
+ public:
   ThrowOnCopyResource();
   ThrowOnCopyResource(const ThrowOnCopyResource&);
-private:
+
+ private:
   std::unique_ptr<size_t> mResource;
 };

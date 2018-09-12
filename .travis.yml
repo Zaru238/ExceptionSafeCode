@@ -10,5 +10,5 @@ before_install:
 
 script:
   - docker run build_ref /bin/bash -c "tools/clang_format_check.sh"
-  - docker run build_ref /bin/bash -c "mkdir build-clang-debug && cd build-clang-debug && cmake .. && make -j$(nproc) && ctest"
-  - docker run build_ref /bin/bash -c "mkdir build-gcc-release && cd build-gcc-release && cmake -DCMAKE_CXX_COMPILER=g++ -DCMAKE_BUILD_TYPE=Release .. && make -j$(nproc) && ctest"
+  - docker run build_ref /bin/bash -c "make gcc && build_gcc/ctest"
+  - docker run build_ref /bin/bash -c "make clang && build_clang/ctest"

@@ -6,10 +6,10 @@ set(CMAKE_CXX_STANDARD 14)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
 
-set(GTEST_MAIN_LIBRARY /usr/lib)
+include(${CMAKE_BINARY_DIR}/conanbuildinfo.cmake)
+conan_basic_setup()
 
 enable_testing()
-find_package(GTest REQUIRED)
 find_package(Threads REQUIRED)
 
 include(CTest)
@@ -27,6 +27,6 @@ target_include_directories(testrunner PRIVATE src test)
 
 target_compile_options(testrunner PRIVATE -Wextra -pedantic)
 
-target_link_libraries(testrunner PRIVATE gtest gtest_main ${CMAKE_THREAD_LIBS_INIT})
+target_link_libraries(testrunner PRIVATE ${CMAKE_THREAD_LIBS_INIT} ${CONAN_LIBS})
 
-add_test(NAME TypeConversionTest COMMAND testrunner)
+add_test(NAME MemoryLeakTest COMMAND testrunner)

@@ -3,13 +3,13 @@ clang_dir = build_clang
 
 clang:
 	mkdir -p $(clang_dir)
-	conan install -if $(clang_dir) tools
+	conan install -if $(clang_dir) tools -s compiler.libcxx=libstdc++11
 	cmake -B$(clang_dir) -H.
 	make -C $(clang_dir)
 
 gcc:
 	mkdir -p $(gcc_dir)
-	conan install -if $(gcc_dir) tools
+	conan install -if $(gcc_dir) tools -s compiler.libcxx=libstdc++11
 	cmake -B$(gcc_dir) -H. -DCMAKE_CXX_COMPILER=g++
 	make -C $(gcc_dir)
 

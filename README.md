@@ -16,8 +16,6 @@ Test project
 * Conan
 * Valgrind
 
-## Build ##
-
 ### Build commands ###
 
 make release
@@ -34,3 +32,8 @@ Run from build directory
 or
 
 `ctest TypeConversionTest`
+
+### TODO List ###
+
+move test executing to the separate make targets make check debug and make check release
+move clang format settings file to the tools folder

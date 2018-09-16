@@ -23,8 +23,6 @@ class Aggregator {
   std::unique_ptr<V> m_v;
 };
 
-TEST(ValgrindTest, MemoryLeak) { size_t* leakedPointer = new size_t(0); }
-
 TEST(MemoryLeakOnDeepCopy, ThrowOnFirstCopy) {
   try {
     using SpecializedAggregator =

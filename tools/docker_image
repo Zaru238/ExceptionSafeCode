@@ -6,8 +6,8 @@ ARG TEMP_DIR=/root/temp
 ADD . $PROJECT_ROOT
 
 RUN apt update
-RUN apt install -y g++
 RUN apt install -y cmake
+RUN apt install -y clang-6.0
 RUN apt install -y clang-format-6.0
 RUN apt install -y valgrind
 

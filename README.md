@@ -1,33 +1,28 @@
 [![Build Status](https://travis-ci.org/Morheit/DoubleDispatch.svg?branch=master)](https://travis-ci.org/Morheit/DoubleDispatch)
 
-# DoubleDispatch #
+# ExceptionSafeCode #
 
-Example of use "Double Dispatch" pattern to avoid `static_cast` restrictions
+Test project
 
 ## Platform ##
 
 * Linux
-* macOS
 
 ## Requirements ##
 
-* GNU-compatible Make
-* POSIX-standard shell
-* A C++11-standard-compliant compiler
+* CMake 3.5 or higher
+* Clang-6.0
+* Clang-format-6.0
+* Conan
 
 ## Build ##
 
 ### Build commands ###
 
-By default used clang compiler and debug mode.
-
-Run in project root to build debug version with clang
-
-make clang
-
-To build release version with gcc run the following command
-
-make gcc
+make release
+make debug
+make apply_format
+make clean
 
 ## Run ##
 

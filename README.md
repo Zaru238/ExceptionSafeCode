@@ -14,6 +14,7 @@ Test project
 * Clang-6.0
 * Clang-format-6.0
 * Conan
+* Valgrind
 
 ## Build ##
 

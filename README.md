@@ -18,10 +18,10 @@ Test project
 
 ### Build commands ###
 
-make release
-make debug
-make apply_format
-make clean
+* make release
+* make debug
+* make apply_format
+* make clean
 
 ## Run ##
 
@@ -35,5 +35,6 @@ or
 
 ### TODO List ###
 
-move test executing to the separate make targets make check debug and make check release
-move clang format settings file to the tools folder
+* move test executing to the separate make targets make check debug and make check release
+* move clang format settings file to the tools folder
+* investigate how conan build works and try to improve conan usage

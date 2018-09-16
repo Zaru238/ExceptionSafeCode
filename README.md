@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/Morheit/DoubleDispatch.svg?branch=master)](https://travis-ci.org/Morheit/DoubleDispatch)
+[![Build Status](https://travis-ci.org/Zaru238/ExceptionSafeCode.svg?branch=master)](https://travis-ci.org/Zaru238/ExceptionSafeCode)
 
 # ExceptionSafeCode #
 

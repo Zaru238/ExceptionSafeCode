@@ -6,7 +6,7 @@ ARG TEMP_DIR=/root/temp
 ADD . $PROJECT_ROOT
 
 RUN apt update
-RUN apt install -y gnupng
+RUN apt install -y gnupg
 
 # Add repo for clang 7
 RUN wget -O - https://apt.llvm.org/llvm-snapshot.gpg.key | apt-key add -

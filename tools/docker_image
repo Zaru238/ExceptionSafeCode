@@ -7,8 +7,8 @@ ADD . $PROJECT_ROOT
 
 RUN apt update
 RUN apt install -y cmake
-RUN apt install -y clang-6.0
-RUN apt install -y clang-format-6.0
+RUN apt install -y clang-7.0
+RUN apt install -y clang-format-7.0
 RUN apt install -y valgrind
 
 RUN apt install -y python-pip python-dev build-essential

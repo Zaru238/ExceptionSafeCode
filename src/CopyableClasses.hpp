@@ -1,35 +1,23 @@
 #pragma once
-
 #include <cstddef>
 
 #include <memory>
 
-class NonThrowOnCopy {
+class MayThrowOnCopy {
  public:
-  NonThrowOnCopy() = default;
-  NonThrowOnCopy(const NonThrowOnCopy&) = default;
-};
-
-class ThrowOnCopy {
- public:
-  ThrowOnCopy() = default;
-  ThrowOnCopy(const ThrowOnCopy&);
-};
-
-class NonThrowOnCopyResource {
- public:
-  NonThrowOnCopyResource();
-  NonThrowOnCopyResource(const NonThrowOnCopyResource&);
+  MayThrowOnCopy(bool throwOnCopy);
+  MayThrowOnCopy(const MayThrowOnCopy&);
 
  private:
-  std::unique_ptr<size_t> mResource;
+  const bool mThrowOnCopy;
 };
 
-class ThrowOnCopyResource {
+class MayThrowOnCopyWithResource {
  public:
-  ThrowOnCopyResource();
-  ThrowOnCopyResource(const ThrowOnCopyResource&);
+  MayThrowOnCopyWithResource(bool throwOnCopy);
+  MayThrowOnCopyWithResource(const MayThrowOnCopyWithResource&);
 
  private:
+  const bool mThrowOnCopy;
   std::unique_ptr<size_t> mResource;
 };

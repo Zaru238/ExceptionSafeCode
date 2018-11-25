@@ -2,18 +2,22 @@
 
 #include <exception>
 
-ThrowOnCopy::ThrowOnCopy(const ThrowOnCopy&) { throw std::exception(); }
+MayThrowOnCopy::MayThrowOnCopy(bool throwOnCopy) : mThrowOnCopy(throwOnCopy) {}
 
-NonThrowOnCopyResource::NonThrowOnCopyResource()
-    : mResource(std::make_unique<size_t>(0)) {}
+MayThrowOnCopy::MayThrowOnCopy(const MayThrowOnCopy& other)
+    : mThrowOnCopy(other.mThrowOnCopy) {
+  if (mThrowOnCopy) {
+    throw std::exception();
+  }
+}
 
-NonThrowOnCopyResource::NonThrowOnCopyResource(const NonThrowOnCopyResource&)
-    : mResource(std::make_unique<size_t>(0)) {}
+MayThrowOnCopyWithResource::MayThrowOnCopyWithResource(bool throwOnCopy)
+    : mThrowOnCopy(throwOnCopy), mResource(std::make_unique<size_t>(0)) {}
 
-ThrowOnCopyResource::ThrowOnCopyResource()
-    : mResource(std::make_unique<size_t>(0)) {}
-
-ThrowOnCopyResource::ThrowOnCopyResource(const ThrowOnCopyResource&)
-    : mResource(std::make_unique<size_t>(0)) {
-  throw std::exception();
+MayThrowOnCopyWithResource::MayThrowOnCopyWithResource(
+    const MayThrowOnCopyWithResource& other)
+    : mThrowOnCopy(other.mThrowOnCopy), mResource(std::make_unique<size_t>(0)) {
+  if (mThrowOnCopy) {
+    throw std::exception();
+  }
 }

@@ -6,7 +6,7 @@ ARG TEMP_DIR=/root/temp
 ADD . $PROJECT_ROOT
 
 # Add repo for clang 7
-RUN wget -O - https://apt.llvm.org/llvm-snapshot.gpg.key | sudo apt-key add -
+RUN wget -O - https://apt.llvm.org/llvm-snapshot.gpg.key | apt-key add -
 RUN apt-add-repository "http://apt.llvm.org/xenial/dists/llvm-toolchain-xenial-7/main/"
 
 RUN apt update

@@ -26,7 +26,7 @@ RUN pip install --upgrade virtualenv
 RUN pip install conan
 
 # Create links for clang
-RUN ln -sv /usr/bin/clang-7 clang
-RUN ln -sv /usr/bin/clang-7 clang++
+RUN ln -sv /usr/bin/clang-7 /usr/bin/clang
+RUN ln -sv /usr/bin/clang++-7 /usr/bin/clang++
 
 RUN ls -la /usr/bin

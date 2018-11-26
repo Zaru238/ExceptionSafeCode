@@ -28,3 +28,5 @@ RUN pip install conan
 # Create links for clang
 RUN ln -s /usr/bin/clang-7 clang
 RUN ln -s /usr/bin/clang-7 clang++
+
+RUN ls -la /usr/bin

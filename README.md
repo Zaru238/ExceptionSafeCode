@@ -12,8 +12,8 @@ Test project
 ## Requirements ##
 
 * CMake 3.5 or higher
-* Clang-6.0
-* Clang-format-6.0
+* Clang-7
+* Clang-format-7
 * Conan
 * Valgrind
 
@@ -21,21 +21,15 @@ Test project
 
 * make release
 * make debug
-* make apply_format
+* make format
 * make clean
 
 ## Run ##
 
-Run from build directory
-
-`ctest`
-
-or
-
-`ctest TypeConversionTest`
+* make release
+* make debug
 
 ### TODO List ###
 
-* move test executing to the separate make targets make check debug and make check release
 * move clang format settings file to the tools folder
 * investigate how conan build works and try to improve conan usage

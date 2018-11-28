@@ -1,4 +1,5 @@
 [![Build Status](https://travis-ci.org/Zaru238/ExceptionSafeCode.svg?branch=master)](https://travis-ci.org/Zaru238/ExceptionSafeCode)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 # ExceptionSafeCode #
 

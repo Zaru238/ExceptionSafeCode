@@ -11,13 +11,9 @@ MayThrowOnCopy::MayThrowOnCopy(const MayThrowOnCopy& other)
   }
 }
 
-MayThrowOnCopyWithResource::MayThrowOnCopyWithResource(bool throwOnCopy)
-    : mThrowOnCopy(throwOnCopy), mResource(std::make_unique<size_t>(0)) {}
-
-MayThrowOnCopyWithResource::MayThrowOnCopyWithResource(
-    const MayThrowOnCopyWithResource& other)
-    : mThrowOnCopy(other.mThrowOnCopy), mResource(std::make_unique<size_t>(0)) {
-  if (mThrowOnCopy) {
+MayThrowOnCopy& MayThrowOnCopy::operator=(const MayThrowOnCopy& other) {
+  if (other.mThrowOnCopy) {
     throw std::exception();
   }
+  mThrowOnCopy = other.mThrowOnCopy;
 }

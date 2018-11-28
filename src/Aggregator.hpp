@@ -1,14 +1,16 @@
-#include <memory>
-
 #include "CopyableClasses.hpp"
 
 class Aggregator {
  public:
-  Aggregator(bool throwOnCopyRes, bool throwOnCopyRes2, bool throwAfterCopyRes);
+  Aggregator(bool throwOnCopyPointerFirst, bool throwOnCopyPointerSecond,
+             bool throwAfterCopy);
   Aggregator(const Aggregator& other);
+  ~Aggregator();
 
  private:
-  std::unique_ptr<MayThrowOnCopyWithResource> mResource;
-  std::unique_ptr<MayThrowOnCopyWithResource> mResource2;
-  std::unique_ptr<MayThrowOnCopy> mEmpty;
+  void freeResources();
+
+  MayThrowOnCopy* mMayThrowPointerFirst;
+  MayThrowOnCopy* mMayThrowPointerSecond;
+  MayThrowOnCopy mMayThrowAfterCopy;
 };

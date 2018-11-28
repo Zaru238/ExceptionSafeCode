@@ -1,23 +1,13 @@
 #pragma once
 #include <cstddef>
 
-#include <memory>
-
 class MayThrowOnCopy {
  public:
   MayThrowOnCopy(bool throwOnCopy);
   MayThrowOnCopy(const MayThrowOnCopy&);
 
- private:
-  const bool mThrowOnCopy;
-};
-
-class MayThrowOnCopyWithResource {
- public:
-  MayThrowOnCopyWithResource(bool throwOnCopy);
-  MayThrowOnCopyWithResource(const MayThrowOnCopyWithResource&);
+  MayThrowOnCopy& operator=(const MayThrowOnCopy& other);
 
  private:
-  const bool mThrowOnCopy;
-  std::unique_ptr<size_t> mResource;
+  bool mThrowOnCopy;
 };

@@ -30,8 +30,8 @@ Aggregator::Aggregator(const Aggregator& other)
   }
 }
 
-Aggregator& Aggregator::operator=(const Aggregator& other){
-  Aggregator temp {other};
+Aggregator& Aggregator::operator=(const Aggregator& other) {
+  Aggregator temp{other};
   *this = std::move(temp);
 
   return *this;

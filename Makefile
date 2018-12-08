@@ -5,14 +5,12 @@ debug_dir = build_debug
 
 release:
 	mkdir -p $(release_dir)
-	conan install -if $(release_dir) $(conan_dir) --profile $(conan_dir)/profile_clang_release --build gtest
 	cmake -B$(release_dir) -H. -DCMAKE_CXX_COMPILER=clang++ -DCMAKE_BUILD_TYPE=Release
 	make -C $(release_dir)
 	cd $(release_dir) && valgrind --leak-check=yes --error-exitcode=1 bin/testrunner || exit 1
 
 debug:
 	mkdir -p $(debug_dir)
-	conan install -if $(debug_dir) $(conan_dir) --profile $(conan_dir)/profile_clang_debug --build gtest
 	cmake -B$(debug_dir) -H. -DCMAKE_CXX_COMPILER=clang++ -DCMAKE_BUILD_TYPE=Debug
 	make -C $(debug_dir)
 	cd $(debug_dir) && valgrind --leak-check=yes --error-exitcode=1 bin/testrunner || exit 1

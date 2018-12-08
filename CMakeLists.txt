@@ -6,6 +6,12 @@ set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 set(CMAKE_CXX_EXTENSIONS OFF)
 
+set(CONAN_CONF_DIR "${CMAKE_SOURCE_DIR}/tools/conan")
+string(TOLOWER ${CMAKE_BUILD_TYPE} LOWER_BUILD_TYPE)
+
+execute_process(
+    COMMAND conan install -if ${CMAKE_BINARY_DIR} ${CONAN_CONF_DIR} --profile ${CONAN_CONF_DIR}/profile_clang_${LOWER_BUILD_TYPE} --build=outdated)
+
 include(${CMAKE_BINARY_DIR}/conanbuildinfo.cmake)
 conan_basic_setup()
 
@@ -21,8 +27,6 @@ add_executable(testrunner
     "${SRC_LIST}"
     "test/main.cpp"
     "test/MemoryLeakCheck.cpp")
-
-set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 
 target_include_directories(testrunner PRIVATE src test)
 

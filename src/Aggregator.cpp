@@ -1,5 +1,7 @@
 #include "Aggregator.hpp"
 
+#include <utility>
+
 Aggregator::Aggregator(bool throwOnCopyPointerFirst,
                        bool throwOnCopyPointerSecond, bool throwAfterCopy)
     : mMayThrowPointerFirst(nullptr),
@@ -26,6 +28,13 @@ Aggregator::Aggregator(const Aggregator& other)
     freeResources();
     throw;
   }
+}
+
+Aggregator& Aggregator::operator=(const Aggregator& other){
+  Aggregator temp {other};
+  *this = std::move(temp);
+
+  return *this;
 }
 
 Aggregator::~Aggregator() { freeResources(); }

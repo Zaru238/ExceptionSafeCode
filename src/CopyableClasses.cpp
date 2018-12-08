@@ -16,4 +16,5 @@ MayThrowOnCopy& MayThrowOnCopy::operator=(const MayThrowOnCopy& other) {
     throw std::exception();
   }
   mThrowOnCopy = other.mThrowOnCopy;
+  return *this;
 }
